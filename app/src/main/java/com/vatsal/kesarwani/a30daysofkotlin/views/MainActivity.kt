@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import com.vatsal.kesarwani.a30daysofkotlin.R
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         init()
         welcome.setOnClickListener {
             val intent=Intent(this@MainActivity,SecondActiviity::class.java)
+            Toast.makeText(this,"Welcome To My First Kotlin App",Toast.LENGTH_LONG).show()
             startActivity(intent)
         }
     }
