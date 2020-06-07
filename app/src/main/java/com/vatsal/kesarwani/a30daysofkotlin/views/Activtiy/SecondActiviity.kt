@@ -1,4 +1,4 @@
-package com.vatsal.kesarwani.a30daysofkotlin.views
+package com.vatsal.kesarwani.a30daysofkotlin.views.Activtiy
 
 import android.content.Intent
 import android.os.Bundle
@@ -40,7 +40,8 @@ class SecondActiviity : AppCompatActivity() , View.OnClickListener{
     override fun onClick(v: View?) {
         if (v != null) {
             when(v.id){
-                R.id.fab -> startActivity(Intent(this,ThirdActivity::class.java))
+                R.id.fab -> startActivity(Intent(this,
+                    ThirdActivity::class.java))
                 R.id.gen -> {
                     prog.visibility=View.VISIBLE
                     value.visibility=View.INVISIBLE

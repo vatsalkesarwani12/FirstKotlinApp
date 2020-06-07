@@ -1,4 +1,4 @@
-package com.vatsal.kesarwani.a30daysofkotlin.views
+package com.vatsal.kesarwani.a30daysofkotlin.views.Activtiy
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -17,7 +17,8 @@ class MainActivity : AppCompatActivity() {
         overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_in_left)
         init()
         welcome.setOnClickListener {
-            val intent=Intent(this@MainActivity,SecondActiviity::class.java)
+            val intent=Intent(this@MainActivity,
+                SecondActiviity::class.java)
             Toast.makeText(this,"Welcome To My First Kotlin App",Toast.LENGTH_LONG).show()
             startActivity(intent)
         }

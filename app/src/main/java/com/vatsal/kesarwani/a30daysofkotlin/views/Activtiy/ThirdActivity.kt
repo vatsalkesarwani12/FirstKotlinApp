@@ -1,4 +1,4 @@
-package com.vatsal.kesarwani.a30daysofkotlin.views
+package com.vatsal.kesarwani.a30daysofkotlin.views.Activtiy
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +28,7 @@ class ThirdActivity : AppCompatActivity() ,View.OnClickListener {
     private var b=0
     private var an=0
     private var bn=0
+    private lateinit var inte: Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,6 +64,7 @@ class ThirdActivity : AppCompatActivity() ,View.OnClickListener {
         b3=findViewById(R.id.b3)
         undob=findViewById(R.id.undob)
         fab=findViewById(R.id.fab2)
+        inte=Intent(this,FourthActivity::class.java)
     }
 
     override fun onClick(v: View?) {
@@ -114,7 +116,7 @@ class ThirdActivity : AppCompatActivity() ,View.OnClickListener {
                     a=0
                     update()
                 }
-                R.id.fab2 -> startActivity(Intent(this,FourthActivity::class.java))
+                R.id.fab2 -> startActivity(inte)
             }
         }
     }
@@ -123,11 +125,23 @@ class ThirdActivity : AppCompatActivity() ,View.OnClickListener {
         val builder=AlertDialog.Builder(this)
         builder.setTitle("Winner")
         when(an>bn){
-            true -> builder.setMessage("Group A Wins🎉🎉")
-            false -> builder.setMessage("Group B Wins🎉🎉")
+            true -> {
+                builder.setMessage("Group A Wins🎉🎉")
+                inte.putExtra("grp","Group A")
+                inte.putExtra("point",an.toString())
+            }
+            false -> {
+                builder.setMessage("Group B Wins🎉🎉")
+                inte.putExtra("grp","Group B")
+                inte.putExtra("point",bn.toString())
+            }
         }
         when(an==0 && bn==0){
-            true -> builder.setMessage("It's a tie")
+            true ->{
+                builder.setMessage("It's a tie")
+                inte.putExtra("grp","Tie")
+                inte.putExtra("point","~")
+            }
         }
         val alertDialog=builder.create()
         alertDialog.show()
